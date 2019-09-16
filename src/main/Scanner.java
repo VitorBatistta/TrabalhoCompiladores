@@ -1,4 +1,4 @@
-// Generated from /home/vitor/Área de Trabalho/trabalhoComp/TrabalhoCompiladores/src/main/CompiladorJava.g4 by ANTLR 4.7.2
+// Generated from /home/william/IdeaProjects/TrabalhoCompiladores/src/antlr/Scanner.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class CompiladorJava extends Lexer {
+public class Scanner extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -101,13 +101,13 @@ public class CompiladorJava extends Lexer {
 	}
 
 
-	public CompiladorJava(CharStream input) {
+	public Scanner(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "CompiladorJava.g4"; }
+	public String getGrammarFileName() { return "Scanner.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

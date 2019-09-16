@@ -1,4 +1,4 @@
-// Generated from /home/vitor/Área de Trabalho/trabalhoComp/TrabalhoCompiladores/src/main/CompiladorJava.g4 by ANTLR 4.7.2
+// Generated from /home/william/IdeaProjects/TrabalhoCompiladores/src/antlr/Scanner.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class CompiladorJava extends Lexer {
+public class Scanner extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -22,7 +22,7 @@ public class CompiladorJava extends Lexer {
 		PRIVATE=23, SUPER=24, ATRIBUICAO=25, IGUALDADE=26, OpMaior=27, INCREMENTO=28, 
 		ADN=29, OpMenorIgual=30, OpNegacao=31, SUBITRACAO=32, DECREMENTO=33, ADICAO=34, 
 		OpSomaAtribuicao=35, MULTIPLICACAO=36, Virgula=37, Ponto=38, AC=39, AbreChave=40, 
-		AP=41, FP=42, FechaChave=43, FC=44, PontoVirgula=45, ID=46, Int=47;
+		AP=41, FP=42, FechaChave=43, FC=44, PontVirgula=45, ID=46, Int=47;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -39,7 +39,7 @@ public class CompiladorJava extends Lexer {
 			"SUPER", "ATRIBUICAO", "IGUALDADE", "OpMaior", "INCREMENTO", "ADN", "OpMenorIgual", 
 			"OpNegacao", "SUBITRACAO", "DECREMENTO", "ADICAO", "OpSomaAtribuicao", 
 			"MULTIPLICACAO", "Virgula", "Ponto", "AC", "AbreChave", "AP", "FP", "FechaChave", 
-			"FC", "PontoVirgula", "ID", "Int"
+			"FC", "PontVirgula", "ID", "Int"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -63,7 +63,7 @@ public class CompiladorJava extends Lexer {
 			"SUPER", "ATRIBUICAO", "IGUALDADE", "OpMaior", "INCREMENTO", "ADN", "OpMenorIgual", 
 			"OpNegacao", "SUBITRACAO", "DECREMENTO", "ADICAO", "OpSomaAtribuicao", 
 			"MULTIPLICACAO", "Virgula", "Ponto", "AC", "AbreChave", "AP", "FP", "FechaChave", 
-			"FC", "PontoVirgula", "ID", "Int"
+			"FC", "PontVirgula", "ID", "Int"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -101,13 +101,13 @@ public class CompiladorJava extends Lexer {
 	}
 
 
-	public CompiladorJava(CharStream input) {
+	public Scanner(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "CompiladorJava.g4"; }
+	public String getGrammarFileName() { return "Scanner.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

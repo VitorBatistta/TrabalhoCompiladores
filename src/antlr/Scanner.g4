@@ -1,4 +1,4 @@
-lexer grammar CompiladorJava;
+lexer grammar Scanner;
 
 //Palavras reservadas
 

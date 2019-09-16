@@ -1,0 +1,7 @@
+public class Teste_01 {
+    private int x;
+
+    public Teste_01(int x) {
+        this.x = x;
+    }
+}
