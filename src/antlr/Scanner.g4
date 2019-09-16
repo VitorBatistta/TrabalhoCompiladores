@@ -33,7 +33,8 @@ ATRIBUICAO: '=';
 IGUALDADE: '==';
 OpMaior: '>';
 INCREMENTO: '++';
-ADN: '&&';
+AND: '&&';
+OR: '||';
 OpMenorIgual: '<=';
 OpNegacao: '!';
 SUBITRACAO: '-';
@@ -59,3 +60,7 @@ PontVirgula: ';';
 ID: (('a..z') | ('A..Z') | '_' | '$') (('a'..'z') | ('A'..'Z') | ('0'..'9') | '_' | '$')*;
 
 Int: '0' | ('1..9')('0..9');
+
+NEWLINE: '\r'? '\n' -> skip;
+WS  :    [ \t]+ -> skip;
+COMMENT: '//' ~'\n'* -> skip;
