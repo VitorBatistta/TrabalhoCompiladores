@@ -1,90 +1,61 @@
 lexer grammar CompiladorJava;
 
-PRIVATE: 'private';
-PROTECTED: 'protected';
-PUBLIC: 'public';
+//Palavras reservadas
+
 ABSTRACT:'abstract';
-CLASS: 'class';
 EXTENDS: 'extends';
-FINAL: 'final';
-IMPLEMENTS: 'implements';
-INTERFACE: 'interface';
-NATIVE: 'native';
-NEW: 'new';
-STATIC: 'static';
-SYNCHRONIZED: 'synchronized';
-TRANSIENT: 'transient';
-VOLATILE: 'volatile';
-BREAK: 'break';
-CASE: 'case';
-CONTINUE: 'continue';
-DEFAULT: 'default';
-DO: 'do';
-ELSE: 'else';
-FOR: 'for';
-IF: 'if';
-INSTANCEOF: 'instanceof';
-RETURN: 'return';
-SWITCH: 'switch';
-WHILE: 'while';
-CATCH: 'carch';
-FINALLY: 'finally';
-THROW: 'throw';
-THROWS: 'throws';
-TRY: 'try';
-IMPORT: 'import';
-PACKAGE: 'package';
-BOOLEAN: 'boolean';
-BYTE: 'byte';
-CHAR: 'char';
-DOUBLE: 'double';
-FLOAT: 'float';
 INT: 'int';
-LONG: 'long';
-SHORT: 'short';
-SUPER: 'super';
-VOID: 'void';
-CONST: 'const';
-GOTO: 'goto';
-TRUE: 'true';
+PROTECTED: 'protected';
+THIS:'this';
+BOOLEAN: 'boolean';
 FALSE: 'false';
+NEW: 'new';
+PUBLIC: 'public';
+TRUE: 'true';
+CHAR: 'char';
+IMPORT: 'import';
 NULL: 'null';
+RETURN: 'return';
+VOID: 'void';
+CLASS: 'class';
+IF: 'if';
+PACKAGE: 'package';
+STATIC: 'static';
+WHILE: 'while';
+ELSE: 'else';
+INSTANCEOF: 'instanceof';
+PRIVATE: 'private';
+SUPER: 'super';
 
-ID: (('a'..'z') | ('A'..'Z') | '_' | '$') (('a'..'z') | ('A'..'Z') | ('0'..'9') | '_' | '$')*;
+//Operadores
 
-ADICAO: '+';
-SUBITRACAO: '-';
-MULTIPLICACAO: '*';
-DIVISAO: '/';
-RESTO: '%';
+ATRIBUICAO: '=';
 IGUALDADE: '==';
-DIFERENÇA: '!=';
-MAIOR: '>';
-MENOR: '<';
-MaiorIgual: '>=';
-MenorIgual: '<=';
-AND: '&&';
-OR: '||';
-MultiAtribuicao : '*=';
-DivAtribuicao : '/=';
-RestoAtribuicao : '%=';
-SomaAtribuicao : '+=';
-SubAtribuicao : '-=';
-ANDAtribuicao : '&=';
-XORAtribuicao : '^=';
-ORAtribuicao : '|=';
-Incremento : '++';
-Decremento : '--';
+OpMaior: '>';
+INCREMENTO: '++';
+ADN: '&&';
+OpMenorIgual: '<=';
+OpNegacao: '!';
+SUBITRACAO: '-';
+DECREMENTO: '--';
+ADICAO: '+';
+OpSomaAtribuicao: '+=';
+MULTIPLICACAO: '*';
+
+//Separadores
+
+Virgula: ',';
+Ponto: '.';
+AC: '[';
+AbreChave: '{';
 AP: '(';
 FP: ')';
-AbreChave: '{';
 FechaChave: '}';
-AC: '[';
 FC: ']';
-Ponto: '.';
-Virgula: ',';
 PontVirgula: ';';
-DoisPonto: ':';
-Interrogacao: '?';
 
-DIGITOS: '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9';
+
+//Identificadores
+ID: (('a..z') | ('A..Z') | '_' | '$') (('a'..'z') | ('A'..'Z') | ('0'..'9') | '_' | '$')*;
+
+Int: '0' | ('1..9')('0..9');
