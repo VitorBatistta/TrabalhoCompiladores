@@ -1,3 +1,5 @@
+package main;
+
 public class ParsedToken {
     private int idType;
     private String nameType;
