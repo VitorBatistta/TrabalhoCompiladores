@@ -1,5 +1,5 @@
 // Generated from C:/Users/vitor/Downloads/TrabalhoCompiladores-master/src/antlr\Scanner.g4 by ANTLR 4.7.2
-package antlr;
+package main;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
