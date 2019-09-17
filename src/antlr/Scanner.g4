@@ -59,7 +59,8 @@ PontVirgula: ';';
 //Identificadores
 ID: (('a..z') | ('A..Z') | '_' | '$') (('a'..'z') | ('A'..'Z') | ('0'..'9') | '_' | '$')*;
 
-Int: '0' | ('1..9')('0..9');
+IntLiteral: '0' | ('1..9')('0..9');
+StringLiteral: '"' (~('"'|'\\' ))*'"';
 
 NEWLINE: '\r'? '\n' -> skip;
 WS  :    [ \t]+ -> skip;
