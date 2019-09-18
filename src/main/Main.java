@@ -5,6 +5,7 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.misc.ParseCancellationException;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
@@ -191,15 +192,20 @@ public class Main {
             }
         }
 
+        System.out.println("------");
+        System.out.println("Tokens");
+        System.out.println("------");
         for (ParsedToken token : tokens) {
             System.out.println(token);
         }
+
+        System.out.println();
 
         System.out.println("------------------");
         System.out.println("Tabela de símbolos");
         System.out.println("------------------");
         symbolTable.forEach((key, value) -> {
-            System.out.printf("%d => %s\n", value, key);
+            System.out.printf("%d %s-->%s %s\n", value, Formatter.ANSI_BLUE, Formatter.ANSI_RESET, key);
         });
     }
 }
