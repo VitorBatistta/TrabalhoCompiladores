@@ -44,6 +44,23 @@ public class ParsedToken {
 
     @Override
     public String toString() {
-        return String.format("<%s, %s>  %d:%d", nameType, value, line, column);
+        String tokenRaw = String.format("<%s, %s>", nameType, value);
+        String tokenStr = String.format("%s<%s%s%s,%s %s%s>%s",
+                Formatter.ANSI_RED,
+                Formatter.ANSI_RESET,
+                nameType,
+                Formatter.ANSI_RED,
+                Formatter.ANSI_RESET,
+                value,
+                Formatter.ANSI_RED,
+                Formatter.ANSI_RESET);
+        String lineStr = String.format("%sline %s%d%s:%s%d",
+                Formatter.ANSI_GREEN,
+                Formatter.ANSI_RESET,
+                line,
+                Formatter.ANSI_GREEN,
+                Formatter.ANSI_RESET,
+                column);
+        return tokenStr + Formatter.padLeft(" ", 20 - tokenRaw.length()) + lineStr;
     }
 }
