@@ -2,7 +2,7 @@ package 5pass;
 import java.lang.;
 import java.lang.System
 
-publi! clas Series {
+publi! clas& Series {
 	public static int ARITHMETIC = 100;
 	public static int GEOMETRIC = 2
 	private int a; // first term
