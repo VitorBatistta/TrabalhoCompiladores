@@ -61,6 +61,6 @@ public class ParsedToken {
                 Formatter.ANSI_GREEN,
                 Formatter.ANSI_RESET,
                 column);
-        return tokenStr + Formatter.padLeft(" ", 20 - tokenRaw.length()) + lineStr;
+        return tokenStr + Formatter.padLeft(" ", 30 - tokenRaw.length()) + lineStr;
     }
 }
