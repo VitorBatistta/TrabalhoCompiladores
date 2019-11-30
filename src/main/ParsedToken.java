@@ -44,6 +44,15 @@ public class ParsedToken {
 
     @Override
     public String toString() {
+        Object value = null;
+
+        if (nameType.equals("ID")) {
+            value = "0x" + Integer.toHexString((int) this.value).toUpperCase();
+        }
+        else {
+            value = this.value;
+        }
+
         String tokenRaw = String.format("<%s, %s>", nameType, value);
         String tokenStr = String.format("%s<%s%s%s,%s %s%s>%s",
                 Formatter.ANSI_RED,
