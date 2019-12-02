@@ -1,4 +1,12 @@
-lexer grammar Scanner;
+grammar Scanner;
+
+// Gramática
+
+classDeclaration : 'class' className '{' (method)* '}';
+className : ID;
+method : methodName '{' (instruction)+ '}';
+methodName : ID;
+instruction : ID;
 
 //Palavras reservadas
 

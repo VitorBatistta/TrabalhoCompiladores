@@ -1,7 +1,9 @@
 package main;
 
 import org.antlr.v4.runtime.ANTLRFileStream;
+import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.misc.ParseCancellationException;
 
 import java.io.IOException;
@@ -22,7 +24,7 @@ public class Main {
         Scanner scanner = new Scanner(input);
         scanner.removeErrorListeners();
         scanner.addErrorListener(ThrowingErrorListener.INSTANCE);
-
+/*
         // Lista de Tokens
         List<ParsedToken> tokens = new LinkedList<>();
 
@@ -207,5 +209,9 @@ public class Main {
         symbolTable.forEach((key, value) -> {
             System.out.printf("%s %s-->%s %s\n", String.format("0x%X", value), Formatter.ANSI_BLUE, Formatter.ANSI_RESET, key);
         });
+*/
+        TokenStream tokenStream = new CommonTokenStream(scanner);
+        ScannerParser parser = new ScannerParser(tokenStream);
+        parser.classDeclaration();
     }
 }
