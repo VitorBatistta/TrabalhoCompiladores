@@ -8,8 +8,15 @@ method : methodName '{' (instruction)+ '}';
 methodName : ID;
 instruction : ID;
 
-//Palavras reservadas
+compilationUnit: typeDeclaration;
 
+typeDeclaration: classDeclaration variableDeclaration;
+
+variableDeclaration:
+
+
+
+//Palavras reservadas
 ABSTRACT:'abstract';
 EXTENDS: 'extends';
 INT: 'int';
