@@ -1,15 +1,6 @@
-grammar Scanner;
+lexer grammar Scanner;
 
-// Gramática
-
-classDeclaration : 'class' className '{' (method)* '}';
-className : ID;
-method : methodName '{' (instruction)+ '}';
-methodName : ID;
-instruction : ID;
-
-//Palavras reservadas
-
+// Palavras reservadas
 ABSTRACT:'abstract';
 EXTENDS: 'extends';
 INT: 'int';
@@ -35,8 +26,7 @@ INSTANCEOF: 'instanceof';
 PRIVATE: 'private';
 SUPER: 'super';
 
-//Operadores
-
+// Operadores
 ATRIBUICAO: '=';
 IGUALDADE: '==';
 OpMaior: '>';
@@ -51,8 +41,7 @@ ADICAO: '+';
 OpSomaAtribuicao: '+=';
 MULTIPLICACAO: '*';
 
-//Separadores
-
+// Separadores
 Virgula: ',';
 Ponto: '.';
 AC: '[';
@@ -64,13 +53,16 @@ FC: ']';
 PontVirgula: ';';
 
 
-//Identificadores
+// identifier:
 ID: (('a'..'z') | ('A'..'Z') | '_' | '$') (('a'..'z') | ('A'..'Z') | ('0'..'9') | '_' | '$')*;
 
+// int_literal:
 Int: ('0'..'9')+;
+
+// string_literal
 StringLiteral: '"' (~('"'|'\\' ))*'"';
 
-
+// Espaços brancos:
 NEWLINE: '\r'? '\n' -> skip;
 WS  :    [ \t]+ -> skip;
 COMMENT: '//' ~'\n'* -> skip;
