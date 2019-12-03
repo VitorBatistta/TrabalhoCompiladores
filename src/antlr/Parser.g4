@@ -69,63 +69,78 @@ variableInitializer : arrayInitializer
 arrayInitializer : '{' (variableInitializer (',' variableInitializer)*)? '}'
                  ;
 
-arguments : ( [expression {, expression}] );
+arguments : '(' (expression (',' expression)*) ')'
+          ;
 
-type : referenceType | basicType;
+type : referenceType
+     | basicType
+     ;
 
-basicType : boolean | char | int;
+basicType : 'boolean'
+          | 'char'
+          | 'int'
+          ;
 
-referenceType : basicType [ ] {[ ]};
-                | qualifiedIdentifier {[ ]};
+referenceType : basicType '[' ']' ('[' ']')?
+              | qualifiedIdentifier ('[' ']')?
+              ;
 
-statementExpression : expression // but must have side-effect, eg i++;
+statementExpression : expression
+                    ;
 
-expression : assignmentExpression;
+expression : assignmentExpression
+           ;
 
-assignmentExpression : conditionalAndExpression // must be a valid lhs;
-                        [(= | +=) assignmentExpression];
+assignmentExpression : conditionalAndExpression (('=' | '+=') assignmentExpression)?
+                     ;
 
-conditionalAndExpression : equalityExpression // level 10;
-                            {&& equalityExpression};
+conditionalAndExpression : equalityExpression ('&&' equalityExpression)?
+                         ;
 
-equalityExpression : relationalExpression // level 6;
-                        {== relationalExpression};
+equalityExpression : relationalExpression ('==' relationalExpression)?
+                   ;
 
-relationalExpression : additiveExpression // level 5;
-                        [(> | <=) additiveExpression | instanceof referenceType];
+relationalExpression : additiveExpression (('>' | '<=') additiveExpression | 'instanceof' referenceType)?
+                     ;
 
-additiveExpression : multiplicativeExpression // level 3;
-                        {(+ | -) multiplicativeExpression};
+additiveExpression : multiplicativeExpression (('+' | '-') multiplicativeExpression)?
+                   ;
 
-multiplicativeExpression : unaryExpression // level 2;
-                            {* unaryExpression};
+multiplicativeExpression : unaryExpression ('*' unaryExpression)?
+                         ;
 
-unaryExpression : ++ unaryExpression // level 1;
-                    | - unaryExpression;
-                    | simpleUnaryExpression;
+unaryExpression : '++' unaryExpression
+                | '-' unaryExpression
+                | simpleUnaryExpression
+                ;
 
-simpleUnaryExpression : ! unaryExpression;
-                        | ( basicType ) unaryExpression //cast;
-                        | ( referenceType ) simpleUnaryExpression // cast;
-                        | postfixExpression;
+simpleUnaryExpression : '!' unaryExpression
+                      | '(' basicType ')' unaryExpression
+                      | '(' referenceType ')' simpleUnaryExpression
+                      | postfixExpression
+                      ;
 
-postfixExpression : primary {selector} {--};
+postfixExpression : primary (selector) ('--')?
+                  ;
 
-selector : . qualifiedIdentifier [arguments];
-            | [ expression ];
+selector : '.' qualifiedIdentifier (arguments)?
+         | '[' expression ']'
+         ;
 
-primary : parExpression;
-            | this [arguments];
-            | super (arguments | . <identifier> [arguments]);
-            | literal;
-            | new creator;
-            | qualifiedIdentifier [arguments];
+primary : parExpression
+        | 'this' (arguments)?
+        | super (arguments | '.' ID (arguments)?)
+        | literal
+        | 'new' creator
+        | qualifiedIdentifier (arguments)?
+        ;
 
-creator : (basicType | qualifiedIdentifier);
-            ( arguments;
-            | [ ] {[ ]} [arrayInitializer];
-            | newArrayDeclarator );
+creator : (basicType | qualifiedIdentifier)
+          ( arguments | '[' ']' ('[' ']')? (arrayInitializer)? | newArrayDeclarator )
+        ;
 
-newArrayDeclarator : [ expression ] {[ expression ]} {[ ]};
+newArrayDeclarator : '[' expression ']' ('[' expression ']')? ('[' ']')?
+                   ;
 
-literal : <int_literal> | <char_literal> | <string_literal> | true | false | null;
+literal : Int | StringLiteral | 'true' | 'false' | 'null'
+        ;
