@@ -18,7 +18,7 @@ modifiers : 'public'
           | 'abstract'
           ;
 
-classDeclaration : 'class' ID (extends qualifiedIdentifier)? classBody
+classDeclaration : 'class' ID ('extends' qualifiedIdentifier)? classBody
                  ;
 
 classBody : '{' (modifiers memberDecl)* '}'
@@ -37,7 +37,7 @@ blockStatement : localVariableDeclarationStatement
                ;
 
 statement : block
-          | <identifier> ':' statement
+          | ID ':' statement
           | 'if' parExpression statement ('else' statement)?
           | 'while' parExpression statement
           | 'return' (expression)? ';'
@@ -129,7 +129,7 @@ selector : '.' qualifiedIdentifier (arguments)?
 
 primary : parExpression
         | 'this' (arguments)?
-        | super (arguments | '.' ID (arguments)?)
+        | 'super' (arguments | '.' ID (arguments)?)
         | literal
         | 'new' creator
         | qualifiedIdentifier (arguments)?
