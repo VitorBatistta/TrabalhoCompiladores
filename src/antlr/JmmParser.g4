@@ -4,13 +4,13 @@ options { tokenVocab=Scanner; }
 
 compilationUnit : (PACKAGE qualifiedIdentifier PontVirgula)?
                   (IMPORT qualifiedIdentifier PontVirgula)*
-                  (typeDeclaration)* EOF
+                  typeDeclaration EOF
                 ;
 
 qualifiedIdentifier : ID ('.' ID)*
                     ;
 
-typeDeclaration : modifiers classDeclaration
+typeDeclaration : (modifiers)? classDeclaration
                 ;
 
 modifiers : PUBLIC
@@ -23,12 +23,12 @@ modifiers : PUBLIC
 classDeclaration : CLASS ID (EXTENDS qualifiedIdentifier)? classBody
                  ;
 
-classBody : AbreChave (modifiers memberDecl)* FechaChave
+classBody : AbreChave ((modifiers)? memberDecl)* FechaChave
           ;
 
 memberDecl : ID formalParameters block
            | (VOID | type) ID formalParameters (block | PontVirgula)
-           | type variableDeclarators
+           | type variableDeclarators PontVirgula // nao ok
            ;
 
 block : AbreChave (blockStatement)* FechaChave
@@ -63,14 +63,16 @@ variableDeclarators : variableDeclarator (Virgula variableDeclarator)*
 
 variableDeclarator : ID (ATRIBUICAO variableInitializer)?;
 
-variableInitializer : arrayInitializer
+variableInitializer : literal
+                    | ID
+                    | arrayInitializer
                     | expression
                     ;
 
 arrayInitializer : AbreChave (variableInitializer (Virgula variableInitializer)*)? FechaChave
                  ;
 
-arguments : AP (expression (Virgula expression)*) FP
+arguments : AP (expression (Virgula expression)*)? FP
           ;
 
 type : referenceType
