@@ -211,7 +211,7 @@ public class Main {
         });
 */
         TokenStream tokenStream = new CommonTokenStream(scanner);
-        ScannerParser parser = new ScannerParser(tokenStream);
-        parser.classDeclaration();
+        JmmParser parser = new JmmParser(tokenStream);
+        parser.compilationUnit();
     }
 }
