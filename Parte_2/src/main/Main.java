@@ -17,7 +17,7 @@ public class Main {
 
     public static void main(String...args) throws IOException {
         // Arquivo de entrada
-        String filePath = "src/test/Teste_01.jmm";
+        String filePath = "Parte_2/src/test/correto.jmm";
         ANTLRFileStream input = new ANTLRFileStream(filePath);
 
         // Parser, Scanner
