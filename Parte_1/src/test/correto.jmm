@@ -1,0 +1,14 @@
+package teste;
+
+import java.util.minus;
+import java.system;
+import lib;
+
+public class Teste_02 extends MasterClass {
+    private int var1;
+    private int var2;
+
+    public Teste_02(int x, int y) {
+
+    }
+}
